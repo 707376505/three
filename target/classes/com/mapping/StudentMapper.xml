@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserMapper">
+
+	<resultMap type="com.model.Student" id="student">
+		<id column="stu_id" property="stuId"/>
+		<result column="stu_name" property="stuName" />
+		<result column="stu_sex" property="stuSex" />
+		<result column="stu_pwd" property="stuPwd" />
+	</resultMap>
+
+	<select id="findStudent" resultMap="student" >
+		select * from t_student where stu_name=#{stuName} and stu_pwd=#{stuPwd}
+	</select>
+	
+</mapper>
