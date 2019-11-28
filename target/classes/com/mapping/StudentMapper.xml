@@ -12,7 +12,7 @@
 	</resultMap>
 
 	<select id="findStudent" resultMap="student" >
-		select * from t_student where stu_name=#{stuName} and stu_pwd=#{stuPwd}
+		select * from EXAMINATION_PERSON 
 	</select>
 	
 </mapper>

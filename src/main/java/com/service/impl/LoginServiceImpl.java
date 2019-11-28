@@ -16,7 +16,7 @@ public class LoginServiceImpl implements ILoginService {
 	@Override
 	public void view() {
 		System.out.println("this is view...............");
-		Student student=userMapper.findStudent("zx", "123");
+		Student student=userMapper.findStudent();
 		System.out.println(student);
 
 	}
