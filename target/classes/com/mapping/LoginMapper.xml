@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.LoginMapper">
+	<!--  <resultMap type="com.model.Login" id="login">
+        <id column="login_code" property="loginCode"/>
+        <result column="login_password" property="loginPassword" />
+        <result column="login_state" property="loginState" />
+        <result column="person_type_id" property="personTypeId" />
+        <result column="login_session" property="loginSession" />
+    </resultMap> -->
+
+	<!-- 查询用户 -->
+	<select id="selectLoginByloginCodeAndloginPassword" resultType="java.util.Map" >
+	  select * from login_table 
+	  where login_code=#{loginCode} and login_password=#{loginPassword}
+	</select>
+	
+	<!-- 查询菜单地址 -->
+	<select id="selectMenuUrlByloginCodeAndloginPassword" resultType="java.util.Map" >
+	  select menu_url from menu_manage m 
+	  inner join user_function u 
+	  on m.menu_id=u.menu_id 
+	  inner join person_manage p 
+	  on u.person_type_id=p.person_type_id 
+	  inner join login_table l 
+	  on p.person_type_id=l.person_type_id 
+	  where l.login_code=#{loginCode} and l.login_password=#{loginPassword}
+	</select>
+	
+</mapper>
