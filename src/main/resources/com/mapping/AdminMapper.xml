@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AdminMapper">
+    
+	<!-- 注册/添加用户 -->
+	<select id="adminAddUser" resultType="com.model.Login" >
+	insert into login_table(login_code,login_password,login_state,person_type_id)
+	values(#{addLoginCode},#{addLoginPassword},#{userState},#{userTypeId})
+	</select>
+	
+	<!-- 查找判断用户是否已存在 -->
+	<select id="adminUserExit" resultType="java.util.Map" >
+	select * from login_table 
+	where login_code=#{addLoginCode}
+	</select>
+	
+	<!-- 通过loginCode查询用户信息 -->
+	<select id="selectUserInfoByLoginCode" resultType="java.util.Map" >
+	select * from login_table 
+	where login_code=#{searchByLoginCode}
+	</select>
+	
+	<!-- 通过US查询用户信息 -->
+	<select id="selectUserInfoByUS" resultType="java.util.Map" >
+	select * from login_table 
+	where login_state=#{searchByUS}
+	</select>
+	
+	<!-- 通过UTI查询用户信息 -->
+	<select id="selectUserInfoByUTI" resultType="java.util.Map" >
+	select * from login_table 
+	where person_type_id=#{searchByUTI}
+	</select>
+	
+	<!-- 通过US和UTI查询用户信息 -->
+	<select id="selectUserInfoByUSAndUTI" resultType="java.util.Map" >
+	select * from login_table 
+	where login_state=#{searchByUS} and person_type_id=#{searchByUTI}
+	</select>
+	
+	<!-- 通过loginCode和UTI查询用户信息 -->
+	<select id="selectUserInfoByLoginCodeAndUTI" resultType="java.util.Map" >
+	select * from login_table 
+	where login_code=#{searchByLoginCode} and person_type_id=#{searchByUTI}
+	</select>
+	
+	<!-- 通过loginCode和US查询用户信息-->
+	<select id="selectUserInfoByLoginCodeAndUS" resultType="java.util.Map" >
+	select * from login_table 
+	where login_code=#{searchByLoginCode} and login_state=#{searchByUS}
+	</select>
+	
+	<!-- 通过loginCode和US和UTI查询用户信息 -->
+	<select id="selectUserInfoByLoginCodeAndUSAndUTI" resultType="java.util.Map" >
+	select * from login_table 
+	where login_code=#{searchByLoginCode} and login_state=#{searchByUS} and person_type_id=#{searchByUTI}
+	</select>
+	
+	<!-- 修改用户 -->
+	<select id="updateUserInfo" resultType="com.model.Login" >
+	update login_table set login_password = #{upLoginPassword},login_state = #{upUserState},person_type_id = #{upUserTypeId}
+	where login_code = #{upLoginCode}
+	</select>
+</mapper>

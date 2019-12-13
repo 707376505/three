@@ -33,4 +33,15 @@
 		<servlet-name>springMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 使用filter实现登录控制 -->
+	<!--<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.lingshi.bookstore.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		所有的管理页面需要登录后才能访问
+		<url-pattern>/views/*</url-pattern>
+	</filter-mapping> -->
 </web-app>

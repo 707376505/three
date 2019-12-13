@@ -1,9 +1,8 @@
 package com.service;
 
-import java.util.List;
 import java.util.Map;
 
-import com.model.Login;
+import org.apache.tomcat.jni.User;
 
 public interface ILoginService {
 
@@ -12,5 +11,11 @@ public interface ILoginService {
     
 	//查找菜单地址
 	public Map<String, Object> getMenuUrl(int loginCode, String loginPassword);
+	
+	//查找用户状态
+	public Map<String, Object> getLoginState(int loginCode, String loginPassword);
+
+	//查用户用于存放session
+	public User getSession(int loginCode);
   
 }

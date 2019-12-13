@@ -29,4 +29,16 @@
 	  where l.login_code=#{loginCode} and l.login_password=#{loginPassword}
 	</select>
 	
+	<!-- 查询用户状态-->
+	<select id="selectLoginStateByloginCodeAndloginPassword" resultType="java.util.Map" >
+	  select login_state from login_table
+	  where login_code=#{loginCode} and login_password=#{loginPassword}
+	</select>
+	
+	<!-- 查询用户存放session -->
+	<select id="selectUserToSession" resultType="com.model.Login" >
+	  select * from login_table 
+	  where login_code=#{loginCode}
+	</select>
+	
 </mapper>

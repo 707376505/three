@@ -303,19 +303,9 @@ label {
 					onBlur="if(this.value=='') $('.login_password').show()" value=""
 					type="password">
 			</div>
-			<div class="mb2">
-				<button type=button class="act-but submit" id="loginbtn" style="color: #FFFFFF" onclick="logincheck()">登录</button>
-			</div>
+            <button id="loginbtn" onclick="logincheck()" type="button" class=".btn-lg">登录</button>
 		</div>
-			<!-- <input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span> -->
 		</form>
-		<!-- <a href="#" class="login-fgetpwd" style="color: #FFFFFF">忘记密码？</a> -->
-
-
-		<!-- <div class="sas">
-			<a href="login/login">还没注册账号！</a>
-		</div> -->
-
 	</div>
 
 	<script type="text/javascript">
